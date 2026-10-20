@@ -26,8 +26,8 @@ public interface ChamberMapper {
   @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
   void insertChamber(Chamber chamber);
 
-  // @Select("SELECT * from chamber where chamberName = #{chamberName}")
-  // ArrayList<Chamber> selectAllByChamberName(String chamberName);
+  @Select("SELECT * from chamber where chamberName = #{chamberName}")
+  ArrayList<Chamber> selectAllByChamberName(String chamberName);
 
   /**
    * DBのカラム名とjavaクラスのフィールド名が同じ場合はそのまま代入してくれる（大文字小文字の違いは無視される）
