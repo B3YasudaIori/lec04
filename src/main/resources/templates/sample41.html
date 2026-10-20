@@ -3,20 +3,34 @@
 
 <head>
   <meta charset="utf-8">
-  <title>SpringBoot Sample4-1</title>
+  <title>SpringBoot Sample4-3</title>
 </head>
 
 <body>
-  <h1>Authorized! <span sec:authentication="name"></span></h1>
+  <h1>Authorized! <span sec:authentication="name"></span>
+  </h1>
   <a href="/logout">ログアウト</a>
 
   <h2>Online Chamber</h2>
-  <div><a href="/sample4/step2/1">小屋に最初に入室した人を1人表示する</a></div>
 
-  <div th:if="${chamber2}">
-    入室者:[[${chamber2.userName}]]
-    小屋名:[[${chamber2.chamberName}]]
-  </div>
+  入室する小屋名を入力してください
+  <form th:action="@{/sample4/step3}" method="post">
+    <input type="text" name="chamberName" />
+    <input type="submit" value="入室"><input type="reset" value="リセット">
+  </form>
+  <p th:if="${chamber3}">
+    小屋名:[[${chamber3.chamberName}]]
+    ユーザ名:[[${chamber3.userName}]]
+  </p>
+
+
+  <!-- <p>
+    <a href="/sample4/step5">Sample4-5へGETで移動</a>
+  </p> -->
+
+  <p>
+    <a href="/sample4/step3">Sample4-3へGETで移動</a>
+  </p>
 </body>
 
 </html>
